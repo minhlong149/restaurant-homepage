@@ -1,1 +1,0 @@
-alert("Everything is working correctly");
