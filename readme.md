@@ -158,9 +158,9 @@ If you bundle three source files (a.js, b.js, and c.js) into one bundle (bundle.
 
 **webpack.config.js**
 ```
- const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
- module.exports = {
+module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   plugins: [
@@ -182,6 +182,10 @@ You can instruct webpack to "watch" all files within your dependency graph for c
     "watch": "webpack --watch",
   }
 }
+```
+
+```
+npm run watch
 ```
 
 # Setup TypeScript
