@@ -17,6 +17,10 @@ document.body.appendChild(element);
         element.innerHTML = homeTemplate;
         addEvent();
         break;
+      case "Menu":
+        element.innerHTML = menuTemplate;
+        addEvent();
+        break;
     }
     })
   })

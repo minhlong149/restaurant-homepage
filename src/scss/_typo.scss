@@ -8,7 +8,18 @@ $crimson: "Crimson Text", Serif;
   font-size: 19px;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: $unica;
+}
+
+h1 {
   font-size: 52px;
+}
+
+h2 {
+  font-size: 39px;
+}
+
+h3 {
+  font-size: 26px;
 }
