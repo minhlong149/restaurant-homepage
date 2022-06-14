@@ -11,11 +11,4 @@ const homeTemplate = `
     </div>
 `;
 
-function homeComponent() {
-  const element = document.createElement("div");
-  element.setAttribute("id", "content");
-  element.innerHTML = homeTemplate;
-  return element;
-}
-
-export { homeComponent };
+export { homeTemplate };
