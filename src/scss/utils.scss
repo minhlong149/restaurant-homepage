@@ -1,0 +1,31 @@
+button {
+  border: none;
+  padding: 1em 2em;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin underline-hover($bg-color) {
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: $bg-color;
+    transition: width 0.25s ease-out;
+  }
+
+  &:hover::before {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+}

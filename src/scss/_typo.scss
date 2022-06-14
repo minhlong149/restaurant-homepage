@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Unica+One");
+
+$unica: "Unica One", Cursive;
+$crimson: "Crimson Text", Serif;
+
+* {
+  font-family: $crimson;
+  font-size: 19px;
+}
+
+h1 {
+  font-family: $unica;
+  font-size: 52px;
+}
