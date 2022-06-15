@@ -1,14 +1,33 @@
-const homeTemplate = `
-    <ul class="nav">
-      <li class="nav__tab">Home</li>
-      <li class="nav__tab">Menu</li>
-      <li class="nav__tab">Contact</li>
-    </ul>
-    <div class="home">
-      <h1 class="home__title">Phút Diner</h1>
-      <img class="home__hero"src="../src/asset/danis-lou-small.jpg"  alt="restaurant with people dining in photo">
-      <button class="home__btn">Order now</button>
-    </div>
+const homeElement = document.createElement("div");
+homeElement.setAttribute("id", "content");
+homeElement.innerHTML = `
+  <ul class="nav">
+    <li class="nav__tab">Home</li>
+    <li class="nav__tab">Menu</li>
+    <li class="nav__tab">Contact</li>
+  </ul>
 `;
 
-export { homeTemplate };
+const home = document.createElement("div");
+home.setAttribute("class", "home");
+
+const homeTitle = document.createElement("h1");
+homeTitle.setAttribute("class", "home__title");
+homeTitle.innerText = "Phút Diner";
+
+const homeHero = document.createElement("img");
+homeTitle.setAttribute("class", "home__hero");
+homeHero.src = require("../asset/danis-lou-small.jpg");
+homeHero.alt = "restaurant with people dining in photo";
+
+const homeButton = document.createElement("button");
+homeButton.setAttribute("class", "home__btn");
+homeButton.innerText = "Order now";
+
+home.appendChild(homeTitle);
+home.appendChild(homeHero);
+home.appendChild(homeButton);
+
+homeElement.appendChild(home);
+
+export { homeElement };

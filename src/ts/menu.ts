@@ -1,40 +1,96 @@
-const menuTemplate = `
-    <ul class="nav">
-      <li class="nav__tab">Home</li>
-      <li class="nav__tab">Menu</li>
-      <li class="nav__tab">Contact</li>
-    </ul>
-    <div class="home">
-      <h1 class="home__title">Phút Diner</h1>
-    </div>
-    <div class="menu">
-      <h2 class="menu__title">The Menu</h2>
-      <div class="menu__dishes">
-        <h3 class="dishes__heading">Boiled Shrimp</h3>
-        <img src="../src/asset/boiled-shrimp.jpg" alt="boiled shrimp" class="dishes__img">
-        <p class="dishes__price">6.81</p>
-      </div>
-      <div class="menu__dishes dishes">
-        <h3 class="dishes__heading">Fatty tuna & Red meat tuna</h3>
-        <img src="../src/asset/fatty-tuna-and-red-meat-tuna.jpg" alt="Fatty tuna and red meat tuna" class="dishes__img">
-        <p class="dishes__price">6.84</p>
-      </div>
-      <div class="menu__dishes">
-        <h3 class="dishes__heading">Salmon & Crab</h3>
-        <img src="../src/asset/salmon-and-crab.jpg" alt="salmon and crab" class="dishes__img">
-        <p class="dishes__price">7.35</p>
-      </div>
-      <div class="menu__dishes">
-        <h3 class="dishes__heading">Salmon egg & Conger eel</h3>
-        <img src="../src/asset/salmon-egg-and-conger-eel.jpg" alt="Salmon egg and conger eel" class="dishes__img">
-        <p class="dishes__price">7.60</p>
-      </div>
-      <div class="menu__dishes">
-        <h3 class="dishes__heading">Scallops & Squid</h3>
-        <img src="../src/asset/scallops-and-squid.jpg" alt="Scallops and squid" class="dishes__img">
-        <p class="dishes__price">3.50</p>
-      </div>
-    </div>
+const menuElement = document.createElement("div");
+menuElement.setAttribute("id", "content");
+menuElement.innerHTML = `
+  <ul class="nav">
+    <li class="nav__tab">Home</li>
+    <li class="nav__tab">Menu</li>
+    <li class="nav__tab">Contact</li>
+  </ul>
 `;
 
-export { menuTemplate };
+const home = document.createElement("div");
+home.setAttribute("class", "home");
+
+const homeTitle = document.createElement("h1");
+homeTitle.setAttribute("class", "home__title");
+homeTitle.innerText = "Phút Diner";
+
+home.appendChild(homeTitle);
+
+const menu = document.createElement("div");
+menu.setAttribute("class", "menu");
+
+const menuTitle = document.createElement("h2");
+menuTitle.setAttribute("class", "menu__title");
+menuTitle.innerText = "The Menu";
+
+menu.appendChild(menuTitle);
+
+interface Dishes {
+  name: string;
+  img: string;
+  decs: string;
+  price: string;
+}
+
+const menuDishes: Dishes[] = [
+  {
+    name: "Boiled Shrimp",
+    img: "boiled-shrimp",
+    decs: "boiled shrimp",
+    price: "6.81",
+  },
+  {
+    name: "Fatty tuna & Red meat tuna",
+    img: "fatty-tuna-and-red-meat-tuna",
+    decs: "Fatty tuna and red meat tuna",
+    price: "6.84",
+  },
+  {
+    name: "Salmon & Crab",
+    img: "salmon-and-crab",
+    decs: "salmon and cra",
+    price: "7.35",
+  },
+  {
+    name: "Salmon egg & Conger eel",
+    img: "salmon-egg-and-conger-eel",
+    decs: "Salmon egg and conger eel",
+    price: "7.60",
+  },
+  {
+    name: "Scallops & Squid",
+    img: "scallops-and-squid",
+    decs: "Scallops and squid",
+    price: "3.50",
+  },
+];
+
+menuDishes.forEach((dishes) => {
+  const dishesElement = document.createElement("div");
+  dishesElement.setAttribute("class", "menu__dishes");
+
+  const dishesHeading = document.createElement("h3");
+  dishesHeading.setAttribute("class", "dishes__heading");
+  dishesHeading.innerText = dishes.name;
+
+  const dishesImg = document.createElement("img");
+  dishesImg.setAttribute("class", "dishes__img");
+  dishesImg.src = require(`../asset/${dishes.img}.jpg`);
+  dishesImg.alt = dishes.decs;
+
+  const dishesPrice = document.createElement("p");
+  dishesPrice.setAttribute("class", "dishes__price");
+  dishesPrice.innerText = dishes.price;
+
+  dishesElement.appendChild(dishesHeading);
+  dishesElement.appendChild(dishesImg);
+  dishesElement.appendChild(dishesPrice);
+
+  menu.appendChild(dishesElement);
+});
+
+menuElement.appendChild(home);
+menuElement.appendChild(menu);
+
+export { menuElement };

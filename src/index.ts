@@ -1,27 +1,25 @@
 import "./scss/style.scss";
-import { homeTemplate } from "./ts/home";
-import { menuTemplate } from "./ts/menu";
+import { homeElement } from "./ts/home";
+import { menuElement } from "./ts/menu";
 
-const element = document.createElement("div");
-element.setAttribute("id", "content");
-element.innerHTML = homeTemplate;
+const webpage = document.body;
+webpage.appendChild(homeElement);
 
-document.body.appendChild(element);
-
-(function addEvent(){
+(function addEvent() {
   const nav = document.querySelectorAll(".nav__tab");
-  nav.forEach((tab)=>{
-    tab.addEventListener("click", ()=>{
-    switch (tab.innerHTML) {
-      case "Home":
-        element.innerHTML = homeTemplate;
-        addEvent();
-        break;
-      case "Menu":
-        element.innerHTML = menuTemplate;
-        addEvent();
-        break;
-    }
-    })
-  })
-})()
+  nav.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const oldElement = document.getElementById("content") as HTMLElement;
+      webpage.removeChild(oldElement);
+      switch (tab.innerHTML) {
+        case "Home":
+          webpage.appendChild(homeElement);
+          break;
+        case "Menu":
+          webpage.appendChild(menuElement);
+          break;
+      }
+      addEvent();
+    });
+  });
+})();
