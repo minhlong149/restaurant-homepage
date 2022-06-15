@@ -223,3 +223,12 @@ module.exports = {
 ```
 
 This will direct webpack to enter through `./index.ts`, load all `.ts` and `.tsx` files through the `ts-loader`, and output a `bundle.js` file in our current directory.
+
+# Deploying a subfolder to GitHub Pages
+
+1. Remove the `dist` directory from the project’s `.gitignore` file.
+2. Use `subtree push` to send your subfolder to the `gh-pages` branch on GitHub.
+
+```
+git subtree push --prefix dist origin gh-pages
+```
